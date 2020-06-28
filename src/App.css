@@ -1,39 +1,76 @@
-.App {
-  text-align: center;
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+	position: fixed;
+	top: 10%;
+	width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+li {
+	float: left;
+	border-right: 1px solid #bbb;
+	width: 50%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
 }
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+li a:hover {
+	background-color: #111;
+	color: white;
+	text-decoration: none;
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
+.active {
+	background-color: #4caf50;
 }
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px)
-  }
-  100% {
-    transform: translateY(0px)
-  }
+form.search input[type="text"] {
+	padding: 10px;
+	font-size: 17px;
+	border: 1px solid grey;
+	width: 95%;
+	background: #f1f1f1;
+	/* position: fixed;
+	top: 0%; */
+}
+
+form.search button {
+	width: 5%;
+	padding: 10px;
+	background: #111518;
+	color: white;
+	font-size: 17px;
+	border: 1px solid grey;
+	border-left: none; /* Prevent double borders */
+	cursor: pointer;
+	/* position: fixed;
+	top: 0%; */
+}
+
+.myDiv {
+	display: flex;
+	flex-direction: column;
+}
+
+.filter-sort-dropbtn {
+	background-color: rgb(17, 22, 17);
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+.filter-sort-dropbtn:hover,
+.dropbtn:focus {
+	background-color: #3e8e41;
 }
