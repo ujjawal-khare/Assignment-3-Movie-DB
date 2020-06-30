@@ -18,7 +18,7 @@ export class Landing extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	loding: state.movies.loading,
+	loading: state.movies.loading,
 });
 
 export default connect(mapStateToProps)(Landing);

@@ -4,6 +4,7 @@ const initialState = {
 	text: "",
 	moviesSeries: [],
 	loading: false,
+	movies: [],
 };
 
 export default function (state = initialState, action) {
