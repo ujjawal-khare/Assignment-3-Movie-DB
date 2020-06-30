@@ -1,21 +1,29 @@
-ul {
+.navbar {
+	padding: 0;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
 	background-color: #333;
-	position: fixed;
-	top: 10%;
+	/* position: fixed; */
+	/* top: 5%%; */
 	width: 100%;
+	text-decoration: none;
 }
 
-li {
-	float: left;
+#movie-nav {
 	border-right: 1px solid #bbb;
 	width: 50%;
+	text-decoration: none;
 }
 
-li a {
+#series-nav {
+	border-right: 1px solid #bbb;
+	width: 50%;
+	text-decoration: none;
+}
+
+#series-nav a {
 	display: block;
 	color: white;
 	text-align: center;
@@ -23,7 +31,21 @@ li a {
 	text-decoration: none;
 }
 
-li a:hover {
+#movie-nav a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+#movie-nav a:hover {
+	background-color: #111;
+	color: white;
+	text-decoration: none;
+}
+
+#series-nav a:hover {
 	background-color: #111;
 	color: white;
 	text-decoration: none;
@@ -62,15 +84,44 @@ form.search button {
 }
 
 .filter-sort-dropbtn {
-	background-color: rgb(17, 22, 17);
+	background-color: rgb(111, 116, 111);
 	color: white;
-	padding: 16px;
+	padding: 18px;
 	font-size: 16px;
 	border: none;
 	cursor: pointer;
 }
 
 .filter-sort-dropbtn:hover,
-.dropbtn:focus {
-	background-color: #3e8e41;
+.filter-sort-dropbtn:focus {
+	background-color: #444744;
+}
+
+/* #language-filter,
+#genre-filter {
+	margin-left: 15%;
+	width: 10%;
+} */
+
+/* .filter {
+	position: absolute;
+	color: #ebf7ec;
+	background-color: #555252;
+	min-width: 130px;
+	border: 1px solid #ddd;
+	z-index: 1;
+	padding-left: 5px;
+	padding-top: 2px;
+	text-decoration: none;
+} */
+
+.select-selected:after {
+	position: absolute;
+	content: "";
+	top: 14px;
+	right: 10px;
+	width: 0;
+	height: 0;
+	border: 6px solid transparent;
+	border-color: #fff transparent transparent transparent;
 }
