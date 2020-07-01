@@ -12,8 +12,6 @@ function App() {
 		<Provider store={store}>
 			<div className="myDiv">
 				<Landing />
-				<Navbar />
-				<FilterAndSort />
 			</div>
 		</Provider>
 	);

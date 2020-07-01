@@ -6,17 +6,14 @@ export class MoviesContainer extends Component {
 	render() {
 		let content = "";
 		const { movies } = this.props;
-		let data = Array.from(this.props);
+		const res = movies.results;
 
-		console.log(data);
-		// let data = Array.from(this.props);
-		// console.log(this.props + "hhh");
-		// console.log(data);
-		// content =
-		// 	data.length > 0
-		// 		? data.map((movie, id) => <MovieCard key={id} movie={movie} />)
-		// 		: null;
-
+		if (res !== undefined) {
+			content =
+				res.length > 0
+					? res.map((movie, id) => <MovieCard key={id} movie={movie} />)
+					: null;
+		}
 		return <div>{content}</div>;
 	}
 }

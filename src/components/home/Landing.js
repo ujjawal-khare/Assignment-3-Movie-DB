@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Search from "./Search";
 import Spinner from "../layout/Spinner";
+import FilterAndSort from "./../FilterAndSort";
+import Navbar from "./../layout/Navbar";
 import MoviesContainer from "./MoviesContainer";
 
 export class Landing extends Component {
@@ -10,6 +12,8 @@ export class Landing extends Component {
 		return (
 			<div>
 				<Search />
+				<Navbar />
+				<FilterAndSort />
 				{/* {loading ? <Spinner /> : <MoviesContainer />} */}
 				<MoviesContainer />
 			</div>

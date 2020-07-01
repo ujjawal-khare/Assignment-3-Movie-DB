@@ -2,6 +2,9 @@ import { ACTION_TYPE } from "../actions/type";
 
 const initialState = {
 	text: "",
+	tab: "movie",
+	genreFilter: "none",
+	langFilter: "none",
 	moviesSeries: [],
 	loading: false,
 	movies: [],
@@ -34,6 +37,18 @@ export default function (state = initialState, action) {
 			return {
 				...state,
 				moviesSeries: action.payload,
+			};
+		case ACTION_TYPE.FILTER_GENRE:
+			return {
+				...state,
+				moviesSeries: action.payload,
+				genreFilter: action.filterGenre,
+			};
+		case ACTION_TYPE.FILTER_LANGUAGE:
+			return {
+				...state,
+				moviesSeries: action.payload,
+				langFilter: action.filterLanguage,
 			};
 		default:
 			return state;
