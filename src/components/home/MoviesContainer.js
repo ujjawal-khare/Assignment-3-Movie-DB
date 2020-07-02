@@ -14,7 +14,7 @@ export class MoviesContainer extends Component {
 					? res.map((movie, id) => <MovieCard key={id} movie={movie} />)
 					: null;
 		}
-		return <div>{content}</div>;
+		return <div className="row">{content}</div>;
 	}
 }
 const mapStateToProps = (state) => ({

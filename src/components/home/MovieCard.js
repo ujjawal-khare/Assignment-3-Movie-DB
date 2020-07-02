@@ -5,7 +5,6 @@ export class MovieCard extends Component {
 		const movie = this.props;
 		let title = "";
 
-		//if (movie !== undefined) console.log("Check " + movie.movie.name);
 		if (movie.movie.title !== undefined) {
 			title = movie.movie.title;
 		} else if (movie.movie.orignal_name !== undefined)
@@ -21,9 +20,9 @@ export class MovieCard extends Component {
 		)
 			url = `http://image.tmdb.org/t/p/w185${movie.movie.poster_path}`;
 		return (
-			<div className="MovieSeriesBox">
+			<div className="column">
 				<img src={url} alt="Not found" />
-				<h5>{title}</h5>
+				<h5 id="movie-heading">{title}</h5>
 			</div>
 		);
 	}

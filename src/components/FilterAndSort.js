@@ -1,17 +1,23 @@
 import React, { Component } from "react";
-import { connect, fetchMovies } from "react-redux";
-import { filterGenre } from "../actions/searchAction";
+import { connect } from "react-redux";
+import { filterGenre, filterLanguage, sortBy } from "../actions/searchAction";
 
 class FilterAndSort extends Component {
 	onClick = (e) => {
 		e.preventDefault();
-		console.log(e.target.className);
+		const tab = this.props.tab;
+		const genre = this.props.genre;
+		const lang = this.props.lang;
+
 		if (e.target.className === "filter-genre") {
-			this.props.filterGenre(e.target.value);
+			this.props.filterGenre(e.target.value, tab, lang);
+		} else if (e.target.className === "filter-language") {
+			this.props.filterLanguage(e.target.value, tab, genre);
 		} else {
-			this.props.filterLanguage(e.target.value);
+			this.props.sortBy(tab, lang, genre, e.target.value);
 		}
 	};
+
 	render() {
 		return (
 			<div className="filter-sort-dropbtn">
@@ -23,36 +29,16 @@ class FilterAndSort extends Component {
 						className="filter-genre"
 						onClick={this.onClick}
 					>
-						<option value="Genre" className="filter">
-							Genre
-						</option>
-						<option value="28" className="filter">
-							Action
-						</option>
-						<option value="12" className="filter">
-							Adventure
-						</option>
-						<option value="16" className="filter">
-							Animation
-						</option>
-						<option value="35" className="filter">
-							Comedy
-						</option>
-						<option value="80" className="filter">
-							Crime
-						</option>
-						<option value="18" className="filter">
-							Drama
-						</option>
-						<option value="9648" className="filter">
-							Mysterty
-						</option>
-						<option value="10749" className="filter">
-							Romance
-						</option>
-						<option value="53" className="filter">
-							Thriller
-						</option>
+						<option value="">Genre</option>
+						<option value="28">Action</option>
+						<option value="12">Adventure</option>
+						<option value="16">Animation</option>
+						<option value="35">Comedy</option>
+						<option value="80">Crime</option>
+						<option value="18">Drama</option>
+						<option value="9648">Mysterty</option>
+						<option value="10749">Romance</option>
+						<option value="53">Thriller</option>
 					</select>
 				</span>
 
@@ -63,21 +49,25 @@ class FilterAndSort extends Component {
 						className="filter-language"
 						onClick={this.onClick}
 					>
-						<option value="Language" className="filter">
-							Language
-						</option>
-						<option value="Hindi" className="filter">
-							Hindi
-						</option>
-						<option value="English" className="filter">
-							English
-						</option>
-						<option value="French" className="filter">
-							French
-						</option>
-						<option value="Marathi" className="filter">
-							Marathi
-						</option>
+						<option value="">Language</option>
+						<option value="he">Hibrew</option>
+						<option value="en">English</option>
+						<option value="es">Spanish</option>
+						<option value="ko">Korean</option>
+					</select>
+				</span>
+
+				<span id="sort">
+					<select
+						id="sort-filter"
+						className="filterSort"
+						onClick={this.onClick}
+					>
+						<option value="">Sort By</option>
+						<option value="vote_average.desc">Rating</option>
+						<option value="primary_release_date.desc">Release Date</option>
+						<option value="popularity.desc">Popularity</option>
+						<option value="revenue.desc">Revenue</option>
 					</select>
 				</span>
 			</div>
@@ -87,6 +77,13 @@ class FilterAndSort extends Component {
 
 const mapStateToProps = (state) => ({
 	movies: state.movies.moviesSeries,
+	tab: state.movies.tab,
+	genre: state.movies.genre,
+	lang: state.movies.lang,
 });
 
-export default connect(mapStateToProps, { filterGenre })(FilterAndSort);
+export default connect(mapStateToProps, {
+	filterGenre,
+	filterLanguage,
+	sortBy,
+})(FilterAndSort);

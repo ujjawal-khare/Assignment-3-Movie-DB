@@ -40,13 +40,13 @@
 }
 
 #movie-nav a:hover {
-	background-color: #111;
+	background-color: rgb(114, 111, 111);
 	color: white;
 	text-decoration: none;
 }
 
 #series-nav a:hover {
-	background-color: #111;
+	background-color: rgb(114, 111, 111);
 	color: white;
 	text-decoration: none;
 }
@@ -55,14 +55,22 @@
 	background-color: #4caf50;
 }
 
+#search-bar {
+	display: block;
+	width: 50%;
+	margin: 0 auto;
+	display: block;
+}
+
+#head-search {
+	background-color: rgb(15, 15, 15);
+}
 form.search input[type="text"] {
 	padding: 10px;
 	font-size: 17px;
 	border: 1px solid grey;
 	width: 95%;
 	background: #f1f1f1;
-	/* position: fixed;
-	top: 0%; */
 }
 
 form.search button {
@@ -84,7 +92,7 @@ form.search button {
 }
 
 .filter-sort-dropbtn {
-	background-color: rgb(111, 116, 111);
+	background-color: rgb(137, 138, 136);
 	color: white;
 	padding: 18px;
 	font-size: 16px;
@@ -95,6 +103,16 @@ form.search button {
 .filter-sort-dropbtn:hover,
 .filter-sort-dropbtn:focus {
 	background-color: #444744;
+}
+
+/* Style the dropdown content (hidden by default) */
+.filter-sort-dropbtn-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
 }
 
 /* #language-filter,
@@ -115,6 +133,10 @@ form.search button {
 	text-decoration: none;
 } */
 
+.filterSort {
+	float: right;
+	margin-right: 20px;
+}
 .select-selected:after {
 	position: absolute;
 	content: "";
@@ -124,4 +146,73 @@ form.search button {
 	height: 0;
 	border: 6px solid transparent;
 	border-color: #fff transparent transparent transparent;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+	flex: 25%;
+	max-width: 25%;
+	padding: 0 4px;
+}
+
+.column img {
+	margin-top: 8px;
+	vertical-align: middle;
+	height: 85%;
+	width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+	.column {
+		flex: 50%;
+		max-width: 50%;
+	}
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+	.column {
+		flex: 100%;
+		max-width: 100%;
+	}
+}
+
+/* Movie Title styling */
+#movie-heading {
+	text-align: center;
+}
+
+/* Heading style */
+
+.heading {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+	text-align: center;
+	color: #f1f1f1;
+	height: 150px;
+	background-attachment: fixed;
+}
+
+.selectedTab {
+	background-color: rgb(114, 111, 111);
+}
+
+.fixed {
+	position: fixed;
+	width: 100%;
+}
+
+.movable {
+	padding-top: 320px;
 }

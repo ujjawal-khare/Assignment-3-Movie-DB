@@ -1,21 +1,31 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Search from "./Search";
-import Spinner from "../layout/Spinner";
 import FilterAndSort from "./../FilterAndSort";
 import Navbar from "./../layout/Navbar";
 import MoviesContainer from "./MoviesContainer";
+import { fetchMovies } from "../../actions/searchAction";
+import Scroll from "./Scroll";
 
 export class Landing extends Component {
+	componentDidMount() {
+		this.props.fetchMovies();
+	}
 	render() {
-		const { loading } = this.props;
+		// const { loading } = this.props;
 		return (
 			<div>
-				<Search />
-				<Navbar />
-				<FilterAndSort />
-				{/* {loading ? <Spinner /> : <MoviesContainer />} */}
-				<MoviesContainer />
+				<div className="fixed">
+					<Search />
+					<Navbar />
+					<FilterAndSort />
+				</div>
+
+				<div className="movable">
+					{/* {loading ? <Spinner /> : <MoviesContainer />} */}
+					<MoviesContainer />
+					<Scroll />
+				</div>
 			</div>
 		);
 	}
@@ -25,4 +35,4 @@ const mapStateToProps = (state) => ({
 	loading: state.movies.loading,
 });
 
-export default connect(mapStateToProps)(Landing);
+export default connect(mapStateToProps, { fetchMovies })(Landing);

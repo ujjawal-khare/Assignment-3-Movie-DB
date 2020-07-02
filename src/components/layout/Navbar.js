@@ -3,15 +3,26 @@ import { fetchMovies, fetchSeries } from "../../actions/searchAction";
 import { connect } from "react-redux";
 
 export class Navbar extends Component {
+	resetFilters() {
+		document.getElementById("genre-filter").value = "28";
+		document.getElementById("language-filter").value = "he";
+		document.getElementById("sort-filter").value = "vote_average.desc";
+		document.getElementById("search-form").reset();
+	}
+
 	onClickMovies = (e) => {
 		e.preventDefault();
-		//	console.log("Check Movies");
+		this.resetFilters();
+		document.getElementById("movie-nav").className = "selectedTab";
+		document.getElementById("series-nav").className = "";
 		this.props.fetchMovies();
 	};
 
 	onClickSeries = (e) => {
 		e.preventDefault();
-		//	console.log("check Series");
+		this.resetFilters();
+		document.getElementById("movie-nav").className = "";
+		document.getElementById("series-nav").className = "selectedTab";
 		this.props.fetchSeries();
 	};
 
