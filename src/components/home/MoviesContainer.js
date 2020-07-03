@@ -5,9 +5,9 @@ import MovieCard from "./MovieCard";
 export class MoviesContainer extends Component {
 	render() {
 		let content = "";
-		const { movies } = this.props;
-		const res = movies.results;
-
+		const res = this.props.movies;
+		//const res = movies.results;
+		//console.log(res.movies);
 		if (res !== undefined) {
 			content =
 				res.length > 0

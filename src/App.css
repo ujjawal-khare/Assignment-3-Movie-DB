@@ -156,9 +156,11 @@ form.search button {
 
 /* Create four equal columns that sits next to each other */
 .column {
-	flex: 25%;
-	max-width: 25%;
+	flex: 20%;
+	max-width: 20%;
 	padding: 0 4px;
+	/* margin-left: 10%;
+	margin-right: 10%; */
 }
 
 .column img {

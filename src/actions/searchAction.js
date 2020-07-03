@@ -16,7 +16,7 @@ export const fetchMovie = (text) => (dispatch) => {
 		.then((res) => {
 			dispatch({
 				type: ACTION_TYPE.FETCH_MOVIE,
-				payload: res.data,
+				payload: res.data.movies.results,
 				genre: "",
 				lang: "",
 				prevUrl: url,
@@ -31,10 +31,10 @@ export const fetchMovies = () => (dispatch) => {
 	axios
 		.get(url)
 		.then((res) => {
-			//console.log("Fetch Movies " + res);
+			//	console.log("Fetch Movies " + res.data.results);
 			dispatch({
 				type: ACTION_TYPE.FETCH_MOVIES,
-				payload: res.data,
+				payload: res.data.results,
 				tab: "movie",
 				genre: "",
 				lang: "",
@@ -50,10 +50,10 @@ export const fetchSeries = () => (dispatch) => {
 	axios
 		.get(url)
 		.then((res) => {
-			//console.log(res);
+			//	console.log("Fetch series" + res.data.results);
 			dispatch({
 				type: ACTION_TYPE.FETCH_SERIES,
-				payload: res.data,
+				payload: res.data.results,
 				tab: "tv",
 				genre: "",
 				lang: "",
@@ -72,7 +72,7 @@ export const filterGenre = (genre, tab, lang) => (dispatch) => {
 			//console.log(res);
 			dispatch({
 				type: ACTION_TYPE.FILTER_GENRE,
-				payload: res.data,
+				payload: res.data.results,
 				filterGenre: genre,
 				prevUrl: url,
 				page: 1,
@@ -89,7 +89,7 @@ export const filterLanguage = (lang, tab, genre) => (dispatch) => {
 			//console.log(res);
 			dispatch({
 				type: ACTION_TYPE.FILTER_LANGUAGE,
-				payload: res.data,
+				payload: res.data.results,
 				filterLanguage: lang,
 				prevUrl: url,
 				page: 1,
@@ -103,10 +103,10 @@ export const sortBy = (tab, lang, genre, sortBy) => (dispatch) => {
 	axios
 		.get(url)
 		.then((res) => {
-			//console.log(res);
+			//	console.log(res.data);
 			dispatch({
 				type: ACTION_TYPE.SORT_BY,
-				payload: res.data,
+				payload: res.data.results,
 				prevUrl: url,
 				page: 1,
 			});
@@ -118,9 +118,10 @@ export const fetchMore = (url, currentPage) => (dispatch) => {
 	axios
 		.get(url + `&page=${currentPage + 1}`)
 		.then((res) => {
+			//console.log(res);
 			dispatch({
-				type: ACTION_TYPE.SORT_BY,
-				payload: res.data,
+				type: ACTION_TYPE.FETCH_MORE,
+				payload: res.data.results,
 				prevUrl: url,
 				page: currentPage + 1,
 			});

@@ -7,6 +7,7 @@ export class Scroll extends Component {
 		const url = this.props.prevUrl;
 		const currPage = this.props.page;
 		this.props.fetchMore(url, currPage);
+		//console.log(this.props.movie);
 	};
 
 	componentDidMount() {
