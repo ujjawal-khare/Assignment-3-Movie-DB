@@ -3,11 +3,8 @@ import { ACTION_TYPE } from "../actions/type";
 const initialState = {
 	text: "",
 	tab: "movie",
-	genre: "",
-	lang: "",
 	moviesSeries: [],
 	loading: false,
-	movies: [],
 	prevUrl: "",
 	currentPage: 1,
 };

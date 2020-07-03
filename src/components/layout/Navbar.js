@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 
 export class Navbar extends Component {
 	resetFilters() {
-		document.getElementById("genre-filter").value = "28";
-		document.getElementById("language-filter").value = "he";
-		document.getElementById("sort-filter").value = "vote_average.desc";
+		document.getElementById("genre-filter").value = "";
+		document.getElementById("language-filter").value = "";
+		document.getElementById("sort-filter").value = "";
 		document.getElementById("search-form").reset();
 	}
 
@@ -29,7 +29,7 @@ export class Navbar extends Component {
 	render() {
 		return (
 			<div className="navbar">
-				<span id="movie-nav">
+				<span id="movie-nav" className="selectedTab">
 					<a href="Movies" onClick={this.onClickMovies}>
 						Movies{" "}
 					</a>
