@@ -16,7 +16,7 @@ export const fetchMovie = (text) => (dispatch) => {
 		.then((res) => {
 			dispatch({
 				type: ACTION_TYPE.FETCH_MOVIE,
-				payload: res.data.movies.results,
+				payload: res.data.results,
 				genre: "",
 				lang: "",
 				prevUrl: url,

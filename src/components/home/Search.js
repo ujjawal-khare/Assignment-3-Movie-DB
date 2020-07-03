@@ -5,13 +5,11 @@ import { connect } from "react-redux";
 export class Search extends Component {
 	onChange = (e) => {
 		e.preventDefault();
-		//console.log(e.target.value);
 		this.props.searchMovie(e.target.value);
 	};
 
 	onSubmit = (e) => {
 		e.preventDefault();
-		//console.log(this.props.text);
 		this.props.fetchMovie(this.props.text);
 		// this.props.setLoading();
 	};
